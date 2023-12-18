@@ -1,16 +1,22 @@
 const ul = document.querySelector('ul')
+const li = ul.querySelectorAll('li')
 const enviar = document.querySelector('.enviar')
 const input = document.querySelector('input')
+const btnApagar = document.querySelector('.btn-apagar')
+
 
 function criarLi(texto){
     let li = document.createElement('li')
-    li.innerHTML = texto
+    li.innerText = texto
     ul.appendChild(li)
-    
+    createButton(li)
+    input.value = ''
 }
 
 enviar.addEventListener('click', (e)=>{
-    criarLi(input.value)
+    if( input.value !== ''){
+        criarLi(input.value)
+   }
 })
 
 function enviarENTER(event){
@@ -21,3 +27,11 @@ function enviarENTER(event){
 }
 
 input.addEventListener('keypress', enviarENTER)
+    
+function createButton(li){
+    const btn = document.createElement('button');
+    btn.innerText = 'Apagar'
+    btn.classList.add('apagar')
+    li.appendChild(btn)
+}
+

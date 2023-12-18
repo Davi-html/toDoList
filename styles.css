@@ -11,3 +11,11 @@ section {
     margin: 5% auto;
     padding: 30px;
 }
+
+.none {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
